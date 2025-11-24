@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { candidates } from '../db';
-import { Users } from 'lucide-react';
+import { Users, UserRound } from 'lucide-react';
 
 export function EquipoPage() {
   return (
@@ -23,33 +23,47 @@ export function EquipoPage() {
       <main className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {candidates.map((member) => (
-              <Link
-                key={member.id}
-                to={`/equipo/${member.slug}`}
-                className="group block rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 bg-white transform hover:-translate-y-2 border border-gray-100 hover:border-primary/40"
-              >
-                <div className="relative aspect-[4/5] bg-gray-200 overflow-hidden">
-                  <img
-                    src={member.photo_url || ''}
-                    alt={`Foto de ${member.name}`}
-                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500 ease-in-out"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-col items-start gap-1">
-                    <h3 className="text-xl font-bold text-white tracking-tight line-clamp-2">{member.name}</h3>
-                    <p className="text-secondary font-semibold text-sm bg-white/10 px-2 py-0.5 rounded-full">
-                      {member.position}
-                    </p>
-                    {member.grade_level && (
-                      <span className="mt-1 inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-black/40 text-gray-100">
-                        {member.grade_level}
-                      </span>
-                    )}
+            {candidates.map((member) => {
+              const lowerPosition = member.position.toLowerCase();
+              const isFemale = lowerPosition.includes('regidora') || lowerPosition.includes('alcaldesa');
+
+              return (
+                <Link
+                  key={member.id}
+                  to={`/equipo/${member.slug}`}
+                  className="group block rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 bg-white transform hover:-translate-y-2 border border-gray-100 hover:border-primary/40"
+                >
+                  <div className="relative aspect-[4/5] bg-gradient-to-br from-[#001f3f] via-[#00385b] to-[#33abb6] flex items-center justify-center">
+                    <div className="flex flex-col items-center gap-3 px-4 text-center">
+                      <div
+                        className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg border-2 ${
+                          isFemale
+                            ? 'bg-pink-50 border-pink-300 text-pink-600'
+                            : 'bg-blue-50 border-blue-300 text-blue-600'
+                        }`}
+                      >
+                        <UserRound size={42} />
+                      </div>
+                      <div className="space-y-1">
+                        <h3 className="text-lg font-bold text-white tracking-tight line-clamp-2">
+                          {member.name}
+                        </h3>
+                        <p className="inline-block text-secondary font-semibold text-xs bg-white/10 px-3 py-1 rounded-full">
+                          {member.position}
+                        </p>
+                        {member.grade_level && (
+                          <div className="mt-1">
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-white/10 text-blue-50">
+                              {member.grade_level}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </main>
