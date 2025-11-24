@@ -1,0 +1,36 @@
+---
+// Este componente se encarga de renderizar los íconos de redes sociales
+import { Icon } from 'astro-icon/components';
+import type { Candidate } from '@/db';
+
+interface Props {
+  links: Candidate['social_links'];
+}
+
+const { links } = Astro.props;
+
+// Mapeo de plataformas a los nombres de los íconos que usarás.
+// Asegúrate de que los nombres (ej. 'mdi:whatsapp') sean correctos para la librería de íconos que usas.
+const socialIconMap = {
+  instagram: 'mdi:instagram',
+  whatsapp: 'mdi:whatsapp',
+  linkedin: 'mdi:linkedin',
+  // Puedes agregar más redes aquí
+  // facebook: 'mdi:facebook',
+};
+---
+
+{links && (
+  <div class="flex items-center gap-4 mt-2">
+    {Object.entries(links).map(([platform, url]) => {
+      const iconName = socialIconMap[platform as keyof typeof socialIconMap];
+      // Solo muestra el ícono si la URL y el ícono existen
+      return iconName && url ? (
+        <a href={url} target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition-colors">
+          <Icon name={iconName} class="h-6 w-6" />
+          <span class="sr-only">{platform}</span>
+        </a>
+      ) : null;
+    })}
+  </div>
+)}
