@@ -14,42 +14,42 @@ const duplicatedTestimonials = [...testimonials, ...testimonials];
 
 export function Hero() {
   return (
-    <div className="relative bg-gradient-to-b from-primary/5 to-background overflow-hidden pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div className="relative bg-gradient-to-b from-primary/5 to-background overflow-hidden pb-6 sm:pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
         <div className="text-center">
           <div className="inline-block mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-semibold">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-secondary/10 text-secondary text-xs sm:text-sm font-semibold">
               <span className="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
               Municipio Escolar 2026
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#001f3f] mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#001f3f] mb-4 sm:mb-6 leading-tight">
             Rumbo al
             <span className="block bg-gradient-to-r from-[#001f3f] to-[#c4a661] bg-clip-text text-transparent">
               Cambio
             </span>
           </h1>
 
-          <p className="text-xl sm:text-2xl text-primary font-semibold mb-6">
+          <p className="text-lg sm:text-2xl text-primary font-semibold mb-4 sm:mb-6">
             Lideramos con hechos, no con palabras
           </p>
 
-          <p className="max-w-2xl mx-auto text-gray-600 text-lg mb-10">
+          <p className="max-w-2xl mx-auto text-gray-600 text-sm sm:text-lg mb-8 sm:mb-10">
             Transformando el municipio escolar en una fuerza real de cambio. Propuestas concretas, resultados medibles, y un equipo comprometido con tu futuro.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link
               to="/propuestas"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold w-full sm:w-auto"
             >
               Conoce Nuestras Propuestas
               <ChevronRight size={20} />
             </Link>
             <Link
               to="/equipo"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-200 text-gray-900 rounded-lg hover:bg-gray-300 transition font-semibold"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-gray-200 text-gray-900 rounded-lg hover:bg-gray-300 transition font-semibold w-full sm:w-auto"
             >
               Conoce El Equipo
               <ChevronRight size={20} />
