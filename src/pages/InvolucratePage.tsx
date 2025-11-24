@@ -255,7 +255,7 @@ export function InvolucrarsePage() {
             </div>
             <div className="absolute inset-0 pt-10">
               <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSc1MCu30NFDzIPriLRRHLE_zunEzoNsQxueUe86iBql1j2qXg/viewform?embedded=true"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSc1MCu30NFDzIPriLRRHLE_zunEzoNsQxueUe86iBql1j2qXg/viewform?usp=header"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
