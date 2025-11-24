@@ -1,6 +1,6 @@
 import { useMemo, ReactNode } from 'react';
 import { useParams, Link as RouterLink } from 'react-router-dom';
-import { Mail, Briefcase, Award, Linkedin, Twitter, Github, Instagram, Link as LinkIcon, AlertCircle } from 'lucide-react';
+import { Mail, Briefcase, Award, Linkedin, Twitter, Github, Instagram, Link as LinkIcon, AlertCircle, UserRound } from 'lucide-react';
 import { candidates, Candidate, Proposal } from '../db';
 
 const SocialIcon = ({ platform, ...props }: { platform: string } & React.ComponentProps<typeof LinkIcon>) => {
@@ -37,40 +37,49 @@ const SocialLinks = ({ links }: { links: Record<string, string> }) => {
   );
 };
 
-const CandidateHero = ({ candidate }: { candidate: Candidate }) => (
-  <section className="bg-gradient-to-b from-background to-white py-12">
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid md:grid-cols-3 gap-8 items-center">
-        <div className="aspect-square bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-          {candidate.photo_url ? (
-            <img src={candidate.photo_url} alt={candidate.name} className="w-full h-full object-cover" />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary to-accent">
-              <span className="text-8xl font-bold text-white opacity-50">{candidate.name.charAt(0)}</span>
+const CandidateHero = ({ candidate }: { candidate: Candidate }) => {
+  const lowerPosition = candidate.position.toLowerCase();
+  const isFemale = lowerPosition.includes('regidora') || lowerPosition.includes('alcaldesa');
+
+  return (
+    <section className="bg-gradient-to-b from-background to-white py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-3 gap-8 items-center">
+          <div className="aspect-square rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-[#001f3f] via-[#00385b] to-[#33abb6] flex items-center justify-center">
+            <div
+              className={`w-28 h-28 sm:w-32 sm:h-32 rounded-full flex items-center justify-center shadow-lg border-2 ${
+                isFemale
+                  ? 'bg-pink-50 border-pink-300 text-pink-600'
+                  : 'bg-blue-50 border-blue-300 text-blue-600'
+              }`}
+            >
+              <UserRound size={64} />
             </div>
-          )}
-        </div>
-        <div className="md:col-span-2">
-          <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Candidato</p>
-          <h1 className="text-4xl font-bold mb-2">{candidate.name}</h1>
-          <p className="text-2xl text-secondary font-semibold mb-6">{candidate.position}</p>
+          </div>
+          <div className="md:col-span-2">
+            <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Candidato</p>
+            <h1 className="text-4xl font-bold mb-2">{candidate.name}</h1>
+            <p className="text-2xl text-secondary font-semibold mb-3">{candidate.position}</p>
 
-          {candidate.grade_level && (
-            <p className="text-gray-600 mb-4"><span className="font-semibold">Grado:</span> {candidate.grade_level}</p>
-          )}
+            {candidate.grade_level && (
+              <p className="text-gray-600 mb-3">
+                <span className="font-semibold">Grado:</span> {candidate.grade_level}
+              </p>
+            )}
 
-          {candidate.personal_message && (
-            <div className="bg-blue-50 border-l-4 border-accent p-4 rounded">
-              <p className="text-gray-800 italic">"{candidate.personal_message}"</p>
-            </div>
-          )}
+            {candidate.personal_message && (
+              <div className="bg-blue-50 border-l-4 border-accent p-4 rounded mb-4">
+                <p className="text-gray-800 italic">"{candidate.personal_message}"</p>
+              </div>
+            )}
 
-          {candidate.social_links && <SocialLinks links={candidate.social_links} />}
+            {candidate.social_links && <SocialLinks links={candidate.social_links} />}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const CandidateSection = ({ title, icon, children, bgColor = 'bg-white' }: { title: string, icon: ReactNode, children: ReactNode, bgColor?: string }) => (
   <section className={`py-16 ${bgColor}`}>
