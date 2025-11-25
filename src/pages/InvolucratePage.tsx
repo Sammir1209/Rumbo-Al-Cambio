@@ -223,9 +223,9 @@ export function InvolucrarsePage() {
               <button
                 type="button"
                 onClick={() => setIsFormOpen(true)}
-                className="mt-4 inline-flex items-center justify-center w-full px-4 py-2.5 rounded-lg bg-blue-600 text-white text-sm font-medium shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                className="mt-4 inline-flex items-center justify-center w-full gap-2 rounded-full px-6 py-2.5 text-sm sm:text-base font-semibold bg-[#001f3f] text-white shadow-md shadow-black/10 hover:bg-[#002b63] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#001f3f] transition-colors duration-200"
               >
-                <Send className="w-4 h-4 mr-2" />
+                <Send className="w-4 h-4" />
                 Abrir formulario de participación
               </button>
             </div>

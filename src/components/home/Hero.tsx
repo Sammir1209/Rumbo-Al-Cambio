@@ -42,14 +42,14 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link
               to="/propuestas"
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-base font-semibold bg-[#001f3f] text-white shadow-md shadow-black/10 hover:bg-[#002b63] transition-colors duration-200 w-full sm:w-auto"
             >
               Conoce Nuestras Propuestas
               <ChevronRight size={20} />
             </Link>
             <Link
               to="/equipo"
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-gray-200 text-gray-900 rounded-lg hover:bg-gray-300 transition font-semibold w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-base font-semibold border border-[#c4a661] text-[#c4a661] bg-white/0 hover:bg-[#c4a661]/5 shadow-sm shadow-black/5 transition-colors duration-200 w-full sm:w-auto"
             >
               Conoce El Equipo
               <ChevronRight size={20} />
