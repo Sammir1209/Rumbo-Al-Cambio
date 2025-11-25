@@ -19,13 +19,13 @@ const RATING_QUESTION_HEADER =
 // 2. COMPONENTES FUNCIONALES PEQUEÑOS: Creamos componentes pequeños y reutilizables
 // para cada sección. Esto sigue el Principio de Responsabilidad Única.
 const InvolvementHero = () => (
-  <section className="bg-gradient-to-b from-[#e0eafc]/30 to-white py-12">
+  <section className="bg-gradient-to-b from-[#e0eafc]/30 to-white py-10 sm:py-12">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div className="inline-block p-3 bg-[#c4a661]/20 rounded-lg mb-4">
-        <Share2 className="text-[#c4a661]" size={32} />
+      <div className="inline-block p-2.5 sm:p-3 bg-[#c4a661]/20 rounded-lg mb-3 sm:mb-4">
+        <Share2 className="text-[#c4a661]" size={28} />
       </div>
-      <h1 className="text-4xl font-bold mb-4">Involúcrate</h1>
-      <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+      <h1 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">Involúcrate</h1>
+      <p className="text-sm sm:text-xl text-gray-600 max-w-2xl mx-auto">
         Tu voz importa. Comparte tus ideas, aporta feedback, y sé parte del movimiento.
       </p>
     </div>
@@ -203,9 +203,9 @@ export function InvolucrarsePage() {
   return (
     <div>
       <InvolvementHero />
-      <section className="py-20 bg-white">
+      <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
             <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 border border-gray-100 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 mb-4">
@@ -213,8 +213,8 @@ export function InvolucrarsePage() {
                     <Send className="text-blue-600" size={22} />
                   </div>
                   <div className="text-left">
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Formulario de Ideas</h3>
-                    <p className="text-sm text-gray-600">
+                    <h3 className="text-base sm:text-xl font-semibold text-gray-900">Formulario de Ideas</h3>
+                    <p className="text-xs sm:text-sm text-gray-600">
                       Haz clic en el botón para abrir el formulario de Google y compartir tus propuestas.
                     </p>
                   </div>
